@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import AppData from "@/../package.json";
-
-export const runtime = "edge";
 
 export const alt = AppData.name;
 export const size = {
@@ -11,35 +11,24 @@ export const size = {
 
 export const contentType = "image/png";
 
-const getFont = async () => {
-	const res = await fetch(
-		new URL(
-			"../../public/fonts/switzer/Switzer-Variable.woff2",
-			import.meta.url,
-		),
-	);
-	return await res.arrayBuffer();
-};
-
-// Image generation
 export default async function Image() {
-	// Font
-	const mono = getFont();
+	const SwitzerRegular = await readFile(
+		join(process.cwd(), "public/fonts/switzer/Switzer-Regular.ttf"),
+	);
 
 	return new ImageResponse(
-		// ImageResponse JSX element
 		<div
 			style={{
 				height: "100%",
 				width: "100%",
 				display: "flex",
 				flexDirection: "column",
-				backgroundColor: "#f00",
-				color: "#f00",
+				backgroundColor: "#fff",
+				color: "#0b0b0a",
 				alignItems: "center",
 				justifyContent: "center",
-				padding: "8px 48px",
-				fontFamily: "ServerMono",
+				padding: "0px 48px 36px 48px",
+				fontFamily: "Switzer",
 				textTransform: "uppercase",
 			}}
 		>
@@ -56,31 +45,30 @@ export default async function Image() {
 			>
 				<div
 					style={{
+						alignSelf: "flex-start",
+						textAlign: "left",
+						justifySelf: "flex-start",
 						display: "flex",
-						justifyContent: "space-between",
-					}}
-				>
-					<div>darkroom.engineering</div>
-				</div>
-				<div
-					style={{
-						justifySelf: "center",
-						alignSelf: "center",
-						textAlign: "center",
-						fontSize: 32,
+						fontSize: 256,
 						fontWeight: 400,
 					}}
 				>
-					{AppData.name}
+					{AppData.name}&trade;
 				</div>
 				<div
 					style={{
 						display: "flex",
 						justifyContent: "space-between",
+						alignItems: "flex-end",
+						fontSize: 24,
+						fontWeight: 400,
 					}}
 				>
-					<div>where things get developed</div>
-					<div>hi@darkroom.engineering</div>
+					<div style={{ display: "flex", flexDirection: "column" }}>
+						Crafting Timeless Websites
+						<br /> With Grace And Precision
+					</div>
+					<div>mold.bnm.st</div>
 				</div>
 			</div>
 		</div>,
@@ -89,8 +77,8 @@ export default async function Image() {
 			...size,
 			fonts: [
 				{
-					name: "ServerMono",
-					data: await mono,
+					name: "Switzer",
+					data: SwitzerRegular,
 					style: "normal",
 					weight: 400,
 				},
