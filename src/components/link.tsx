@@ -10,24 +10,14 @@ type LinkProps = Omit<ComponentProps<"a">, "href"> & {
 	onClick?: (e: MouseEvent<HTMLElement>) => void;
 };
 
-export function Link({
-	href,
-	onClick,
-	prefetch = true,
-	children,
-	...props
-}: LinkProps) {
+export function Link({ href, onClick, prefetch = true, children, ...props }: LinkProps) {
 	// const navigate = usePageTransitionNavigate()
 	const isExternal = href?.startsWith("http");
 
 	// If no href is provided but there's an onClick, render a button
 	if (!href && onClick) {
 		return (
-			<button
-				onClick={(e: MouseEvent<HTMLButtonElement>) => onClick(e)}
-				type="button"
-				{...(props as ComponentProps<"button">)}
-			>
+			<button onClick={(e: MouseEvent<HTMLButtonElement>) => onClick(e)} type="button" {...(props as ComponentProps<"button">)}>
 				{children}
 			</button>
 		);
@@ -40,10 +30,7 @@ export function Link({
 
 	const linkProps = {
 		...props,
-		...(isExternal && {
-			target: "_blank",
-			rel: "noopener noreferrer",
-		}),
+		...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
 	};
 
 	const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -56,12 +43,7 @@ export function Link({
 	};
 
 	return (
-		<NextLink
-			prefetch={prefetch}
-			onClick={handleClick}
-			{...linkProps}
-			href={href}
-		>
+		<NextLink prefetch={prefetch} onClick={handleClick} href={href} {...linkProps}>
 			{children}
 		</NextLink>
 	);
