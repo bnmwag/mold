@@ -8,7 +8,7 @@ import type { LenisOptions } from "lenis";
 // import { Canvas } from '~/webgl/components/canvas'
 import { Lenis } from "./lenis";
 import { Footer } from "./footer";
-// import { Navigation } from '../navigation'
+import { Navigation } from "./navigation";
 
 interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 	lenis?: boolean | LenisOptions;
@@ -25,8 +25,8 @@ export function Wrapper({
 	return (
 		<>
 			{/* {webgl && <Canvas root {...(typeof webgl === 'object' && webgl)} />} */}
-			{/* <Navigation /> */}
-			<main className={cn("relative flex flex-col grow", className)} {...props}>
+			<Navigation />
+			<main className={cn("relative flex grow flex-col", className)} {...props}>
 				{children}
 				{/* <script>
 					{`document.documentElement.setAttribute('data-theme', '${theme}');`}
