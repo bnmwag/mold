@@ -12,9 +12,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-	const SwitzerRegular = await readFile(
-		join(process.cwd(), "public/fonts/switzer/Switzer-Regular.ttf"),
-	);
+	const SwitzerRegular = await readFile(join(process.cwd(), "public/fonts/switzer/Switzer-Regular.ttf"));
 
 	return new ImageResponse(
 		<div
@@ -23,8 +21,8 @@ export default async function Image() {
 				width: "100%",
 				display: "flex",
 				flexDirection: "column",
-				backgroundColor: "#fff",
-				color: "#0b0b0a",
+				backgroundColor: "#0b0b0a",
+				color: "#fff",
 				alignItems: "center",
 				justifyContent: "center",
 				padding: "0px 48px 36px 48px",
@@ -65,8 +63,8 @@ export default async function Image() {
 					}}
 				>
 					<div style={{ display: "flex", flexDirection: "column" }}>
-						Crafting Timeless Websites
-						<br /> With Grace And Precision
+						For designers, developers,
+						<br /> and digital makers
 					</div>
 					<div>mold.bnm.st</div>
 				</div>
