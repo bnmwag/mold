@@ -60,11 +60,11 @@ svg.icon {
   will-change: opacity;
 }
 
-.link {
+a.inline {
   position: relative;
 }
 
-.link:before {
+a.inline:before {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -75,15 +75,30 @@ svg.icon {
   border-radius: 0.25rem;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.35s var(--ease-in-out-expo);
+  transition: transform 0.640s var(--ease-in-out-expo);
   will-change: transform;
 }
 
-.link:hover:before {
+a.inline:hover:before {
   transform-origin: left;
   transform: scaleX(1);
 }
 
+a.bulky {
+  position: relative;
+}
+
+a.bulky .bar {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.750s var(--ease-in-out-expo);
+  will-change: transform;
+}
+
+a.bulky:hover .bar {
+  transform-origin: left;
+  transform: scaleX(1);
+}
 
 h1, .h1 {
   margin-top: 0;
@@ -131,4 +146,11 @@ p, .p {
   font-size: clamp(1em, 1vw, 1.5em);
   font-weight: 400;
   line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6, p  {
+  mark {
+    background: none;
+    color: var(--color-contrast);
+  }  
 }

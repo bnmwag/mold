@@ -54,7 +54,7 @@ export const Navigation: FC = () => {
 					<ul className="flex items-center gap-x-[calc(var(--gap)/2)]">
 						{navItems.map((item) => (
 							<li key={item.name} className="text-sm">
-								<Link href={item.href} className="link">
+								<Link href={item.href} variant="inline">
 									{item.name}
 								</Link>
 							</li>
