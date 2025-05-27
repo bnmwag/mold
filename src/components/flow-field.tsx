@@ -50,7 +50,7 @@ function basePath(t: number): THREE.Vector3 {
 }
 
 type ParticleData = {
-	ref: React.RefObject<THREE.Group>;
+	ref: React.RefObject<THREE.Group | null>;
 	originalT: number;
 	position: THREE.Vector3;
 	velocity: THREE.Vector3;
@@ -86,7 +86,7 @@ const FlowWithMouse = () => {
 		const cursorVelocity = deltaMouse.length() * 60;
 		setLastMouse(mouseVec);
 
-		particles.forEach((p) => {
+		for (const p of particles) {
 			const t = (p.originalT + time * SPEED) % 1;
 			const base = basePath(t);
 
@@ -112,7 +112,7 @@ const FlowWithMouse = () => {
 			p.velocity.multiplyScalar(0.95);
 			p.position.add(p.velocity);
 			p.ref.current?.position.copy(p.position);
-		});
+		}
 
 		let lineIndex = 0;
 		for (let i = 0; i < particles.length; i++) {
@@ -139,15 +139,21 @@ const FlowWithMouse = () => {
 	return (
 		<>
 			{particles.map((p, i) => (
-				<group key={i} ref={p.ref}>
-					<Text fontSize={p.scale} color="white" anchorX="center" anchorY="middle" toneMapped={false}>
+				<group key={`${p.char}-${i}-${p.offset}`} ref={p.ref}>
+					<Text fontSize={p.scale} color="white" anchorX="center" anchorY="middle" font="/fonts/switzer/Switzer-Regular.ttf">
 						{p.char}
 					</Text>
 				</group>
 			))}
 			<lineSegments>
 				<bufferGeometry ref={geometryRef}>
-					<bufferAttribute attach="attributes-position" count={linePositions.length / 3} array={linePositions} itemSize={3} />
+					<bufferAttribute
+						attach="attributes-position"
+						count={linePositions.length / 3}
+						array={linePositions}
+						itemSize={3}
+						args={[linePositions, 3]}
+					/>
 				</bufferGeometry>
 				<lineBasicMaterial color="white" transparent opacity={0.5} />
 			</lineSegments>
