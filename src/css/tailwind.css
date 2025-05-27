@@ -7,10 +7,10 @@
   --color-*: initial;
 	--color-primary: #ffffff;
 	--color-secondary: #000000;
-	--color-contrast: #BB1B01;
+	--color-contrast: #E30614;
   --color-black: #000000;
 	--color-white: #ffffff;
-	--color-red: #BB1B01;
+	--color-red: #E30614;
     
   /* --spacing-*: initial; */
   --spacing-0: 0;
@@ -52,14 +52,14 @@
 [data-theme=light] {
   --color-primary: #ffffff;
 	--color-secondary: #000000;
-	--color-contrast: #BB1B01;
+	--color-contrast: #E30614;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
 	--color-primary: #0a0a0a;
 		--color-secondary: #ffffff;
-		--color-contrast: #BB1B01;
+		--color-contrast: #E30614;
   }
 }
 
