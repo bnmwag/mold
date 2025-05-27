@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![mold](/.github/mold_gh-banner.jpg)
 
-## Getting Started
+# Mold™
 
-First, run the development server:
+A modern starter template for designers, developers, and digital makers.
+
+Mold was built to speed up the process what i do for basically every project.
+
+It represents a clean starting point for building high-end, visually rich websites using NextJS and PayloadCMS at the core. the rest is kinda my personal preference and can be changed to your liking.
+
+## How to Use
+
+This repo is meant to be used as a **template repository** on GitHub.  
+Click **“Use this template”** to create your own project from it.
+
+Then:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js](https://nextjs.org/)
+- [PayloadCMS](https://payloadcms.com/)
+- [Tailwind](https://tailwindcss.com/)
+- [GSAP](https://greensock.com/gsap/)
+- [Lenis](https://github.com/studio-freight/lenis)
+- [Three.js](https://threejs.org/)
+- [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mold is licensed under the [MIT License](https://github.com/bnmwag/mold/blob/main/LICENSE).

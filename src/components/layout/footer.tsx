@@ -18,7 +18,7 @@ export const Footer: FC = () => {
 							stress, just flow.
 						</p>
 					</Split>
-					<Link href="/" variant="bulky" className="flex w-full">
+					<Link href="https://github.com/bnmwag/mold" variant="bulky" className="flex w-full">
 						View on Github
 					</Link>
 				</div>
@@ -26,7 +26,7 @@ export const Footer: FC = () => {
 					<Split type="lines" animationOnScroll>
 						<ul className="!space-y-gap">
 							<li>
-								<Link href="https://github.com/yourusername/mold" variant="inline">
+								<Link href="https://github.com/bnmwag/mold" variant="inline">
 									View on GitHub
 								</Link>
 							</li>
