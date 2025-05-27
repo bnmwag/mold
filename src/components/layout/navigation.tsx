@@ -44,7 +44,7 @@ export const Navigation: FC = () => {
 			<div className="dr-layout-grid py-safe">
 				<Link href="/" ref={logoRef} className="relative col-span-4 overflow-hidden">
 					<span data-slogan className="inline-block">
-						Crafting Timeless Websites with ease
+						For designers, developers, and digital makers
 					</span>
 					<span data-logo className="absolute top-0 left-0 translate-y-full">
 						MOLD&trade;
@@ -61,7 +61,7 @@ export const Navigation: FC = () => {
 						))}
 					</ul>
 					<Link href={"/contact"} className="text-sm">
-						Let's Talk
+						Get Started
 					</Link>
 				</nav>
 			</div>

@@ -41,12 +41,13 @@ const IndexPage: NextPage = () => {
 				<div className="dr-layout-grid h-full py-gap">
 					<Split type="lines" delay={0.2}>
 						<h1 className="dr-text-78 col-span-8 col-start-5 indent-[25%] uppercase">
-							Elevating Digital Experiences With Precision & Soul
+							Start your next website with flow, beauty, and intention.
 						</h1>
 					</Split>
 					<Split type="lines" delay={0.8}>
 						<p className="col-span-4 col-start-1 text-balance content-end-safe">
-							From concept to deployment — fast, scalable, and beautiful. Powered by a modern, motion-first developer template.
+							Mold&trade; is a modern starter template for high-end, visually rich websites. Pre configured with Next.js,
+							Tailwind, Payload CMS, GSAP, and Lenis.
 						</p>
 					</Split>
 				</div>
@@ -61,11 +62,12 @@ const IndexPage: NextPage = () => {
 			</section>
 			<section className="relative h-screen">
 				<div className="relative h-full py-gap">
-					<div className="flex h-full items-center" ref={featuresContainerRef}>
+					<div className="flex h-full items-center overflow-hidden" ref={featuresContainerRef}>
 						<Split type="words" disableAnimation>
 							<div className="dr-layout-grid">
-								<h2 className="h2 | text-balance uppercase col-span-10" data-text>
-									Built for creatives who blend form and flow — this template brings motion, clarity, and power to every pixel.
+								<h2 className="h2 | col-span-10 text-balance uppercase" data-text>
+									For designers, developers, and digital makers — Mold gives you the motion, structure, and freedom to craft
+									stunning websites fast.
 								</h2>
 							</div>
 						</Split>
