@@ -10,6 +10,7 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 interface ISplitProps extends React.HTMLAttributes<HTMLDivElement> {
 	animationOnScroll?: boolean;
+	disableAnimation?: boolean;
 	delay?: number;
 	start?: string;
 	markers?: boolean;
@@ -19,6 +20,7 @@ interface ISplitProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Split: FC<ISplitProps> = ({
 	children,
 	animationOnScroll = false,
+	disableAnimation = false,
 	delay = 0,
 	start = "top 75%",
 	type = "lines",
@@ -73,6 +75,8 @@ export const Split: FC<ISplitProps> = ({
 				linesRef.current.push(...split.lines);
 			}
 
+			if (disableAnimation) return;
+
 			gsap.set(linesRef.current, { y: "100%" });
 			containerRef.current.removeAttribute("data-hidden-on-init");
 
@@ -112,14 +116,11 @@ export const Split: FC<ISplitProps> = ({
 
 	if (Children.count(children) === 1) {
 		//@ts-ignore
-		return cloneElement(children, {
-			ref: containerRef,
-			"data-hidden-on-init": true,
-		});
+		return cloneElement(children, { ref: containerRef, "data-hidden-on-init": !disableAnimation });
 	}
 
 	return (
-		<div ref={containerRef} data-split-wrapper data-hidden-on-init>
+		<div ref={containerRef} data-split-wrapper data-hidden-on-init={!disableAnimation}>
 			{children}
 		</div>
 	);

@@ -55,7 +55,7 @@ svg.icon {
   outline: 2px solid var(--color-contrast);
 }
 
-[data-hidden-on-init] {
+[data-hidden-on-init="true"] {
   opacity: 0;
   will-change: opacity;
 }
@@ -85,7 +85,7 @@ svg.icon {
 }
 
 
-h1 {
+h1, .h1 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: clamp(4em, 5vw, 7.5em);
@@ -93,47 +93,42 @@ h1 {
   line-height: 1;
 }
 
-h2 {
+h2, .h2 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 5em;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.05;
 }
 
-h3 {
+h3, .h3 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 2.5em;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.1;
 }
 
-h4 {
+h4, .h4 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 1.75em;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.15;
 }
 
-h5 {
+h5, .h5 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 1.25em;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.2;
 }
 
-p {
+p, .p {
   margin-bottom: 0;
   margin-top: 0;
   font-size: clamp(1em, 1vw, 1.5em);
   font-weight: 400;
   line-height: 1.4;
-}
-
-a {
-  color: inherit;
-  text-decoration: underline;
 }

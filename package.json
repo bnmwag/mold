@@ -11,6 +11,8 @@
 	},
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
+		"@react-three/drei": "^10.0.8",
+		"@react-three/fiber": "^9.1.2",
 		"clsx": "^2.1.1",
 		"gsap": "^3.13.0",
 		"hamo": "1.0.0-dev.6",
@@ -18,7 +20,9 @@
 		"next": "15.3.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"simplex-noise": "^4.0.3",
 		"tempus": "1.0.0-dev.11",
+		"three": "^0.176.0",
 		"zustand": "^5.0.5"
 	},
 	"devDependencies": {
@@ -26,6 +30,7 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"@types/three": "^0.176.0",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	}

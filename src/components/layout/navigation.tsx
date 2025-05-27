@@ -10,7 +10,7 @@ const navItems = [
 	{ name: "Work", href: "/work" },
 	{ name: "About", href: "/about" },
 	{ name: "Services", href: "/services" },
-	{ name: "Contact", href: "/contact" },
+	{ name: "Journal", href: "/journal" },
 ];
 
 export const Navigation: FC = () => {
