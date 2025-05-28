@@ -1,4 +1,4 @@
-import "../css/index.css";
+import "@/css/index.css";
 
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
@@ -64,9 +64,7 @@ export const metadata: Metadata = {
 		},
 		description: APP_DESCRIPTION,
 	},
-	authors: [
-		{ name: "darkroom.engineering", url: "https://darkroom.engineering" },
-	],
+	authors: [{ name: "darkroom.engineering", url: "https://darkroom.engineering" }],
 	other: {
 		"fb:app_id": process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || "",
 	},
@@ -80,7 +78,7 @@ export const viewport: Viewport = {
 const sans = localFont({
 	src: [
 		{
-			path: "../../public/fonts/switzer/Switzer-Variable.woff2",
+			path: "../../../public/fonts/switzer/Switzer-Variable.woff2",
 			style: "normal",
 		},
 	],
@@ -91,12 +89,7 @@ const sans = localFont({
 
 export default function Layout({ children }: PropsWithChildren) {
 	return (
-		<html
-			lang="en"
-			dir="ltr"
-			className={`${sans.variable}`}
-			suppressHydrationWarning
-		>
+		<html lang="en" dir="ltr" className={`${sans.variable}`} suppressHydrationWarning>
 			<body>
 				<RealViewport />
 				{children}
