@@ -4,13 +4,14 @@ import { useEffect, useRef, type FC } from "react";
 import cn from "clsx";
 import { lerp } from "@/lib/utils";
 import { useLenis } from "lenis/react";
+import type { Media as MediaType } from "@/payload-types";
+import { Media } from "../render/render-media";
 
 interface IParallaxImageProps extends React.HTMLAttributes<HTMLImageElement> {
-	src: string;
-	alt: string;
+	media: MediaType | string;
 }
 
-export const ParallaxImage: FC<IParallaxImageProps> = ({ src, className, alt, ...props }) => {
+export const ParallaxImage: FC<IParallaxImageProps> = ({ className, media, ...props }) => {
 	const imageRef = useRef<HTMLImageElement>(null);
 	const bounds = useRef<{ top: number; bottom: number } | null>(null);
 	const currentTranslateY = useRef(0);
@@ -59,12 +60,12 @@ export const ParallaxImage: FC<IParallaxImageProps> = ({ src, className, alt, ..
 	});
 
 	return (
-		<img
-			src={src}
+		<Media
+			resource={media}
+			imgClassName="absolute h-full w-full object-cover"
 			ref={imageRef}
-			{...props}
-			alt={alt}
-			className={cn("absolute h-full w-full object-cover will-change-transform", className)}
+			{...(props as any)} // Type assertion to bypass the onClick incompatibility
+			className={cn("absolute h-full w-full will-change-transform", className)}
 			style={{
 				willChange: "transform",
 				transform: "translateY(0) scale(1.25)",

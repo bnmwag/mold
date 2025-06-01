@@ -25,6 +25,7 @@ export const Split: FC<ISplitProps> = ({
 	start = "top 75%",
 	type = "lines",
 	markers = false,
+	className,
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const elementRef = useRef([]);
@@ -120,7 +121,7 @@ export const Split: FC<ISplitProps> = ({
 	}
 
 	return (
-		<div ref={containerRef} data-split-wrapper data-hidden-on-init={!disableAnimation}>
+		<div ref={containerRef} data-split-wrapper data-hidden-on-init={!disableAnimation} className={className}>
 			{children}
 		</div>
 	);
