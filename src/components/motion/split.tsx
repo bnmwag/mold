@@ -79,11 +79,12 @@ export const Split: FC<ISplitProps> = ({
 
 			if (disableAnimation) return;
 
-			gsap.set(linesRef.current, { y: "100%" });
+			gsap.set(linesRef.current, { y: "400%", rotate: "12deg" });
 			containerRef.current.removeAttribute("data-hidden-on-init");
 
 			const animation = {
 				y: "0%",
+				rotate: "0deg",
 				duration: 1,
 				stagger: 0.1,
 				ease: "expo.out",
