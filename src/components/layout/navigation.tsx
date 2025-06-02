@@ -4,7 +4,10 @@ import { useRef, type FC } from "react";
 import { Link } from "../link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTransitionNavigation } from "@/lib/transitions";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const navItems = [
 	{ name: "Home", href: "/" },
@@ -16,27 +19,48 @@ const navItems = [
 
 export const Navigation: FC = () => {
 	const logoRef = useRef<HTMLAnchorElement>(null!);
+	const timelineRef = useRef<gsap.core.Timeline | null>(null);
 	const router = useTransitionNavigation();
 
 	useGSAP(
 		() => {
 			const logoSpan = logoRef.current.querySelector("span[data-logo]")!;
 			const sloganSpan = logoRef.current.querySelector("span[data-slogan]")!;
-
 			const firstSection = document.querySelector("main section")!;
 
-			const animation = gsap.timeline({
-				scrollTrigger: {
-					trigger: firstSection,
-					start: "bottom-=30px top",
-					onEnter: () => animation.play(),
-					onLeaveBack: () => animation.reverse(),
-				},
+			const tl = gsap.timeline({ paused: true });
+
+			tl.to(logoSpan, { y: "0%", duration: 1, ease: "expo.inOut" }).to(
+				sloganSpan,
+				{ y: "-100%", duration: 1, ease: "expo.inOut" },
+				"<",
+			);
+
+			timelineRef.current = tl;
+
+			ScrollTrigger.create({
+				trigger: firstSection,
+				start: "bottom-=30px top",
+				onEnter: () => tl.play(),
+				onLeaveBack: () => tl.reverse(),
 			});
 
-			animation
-				.to(logoSpan, { y: "0%", duration: 1, ease: "expo.inOut" })
-				.to(sloganSpan, { y: "-100%", duration: 1, ease: "expo.inOut" }, "<");
+			// Hover interaction
+			const handleMouseEnter = () => {
+				tl.play();
+			};
+
+			const handleMouseLeave = () => {
+				tl.reverse();
+			};
+
+			logoRef.current.addEventListener("mouseenter", handleMouseEnter);
+			logoRef.current.addEventListener("mouseleave", handleMouseLeave);
+
+			return () => {
+				logoRef.current.removeEventListener("mouseenter", handleMouseEnter);
+				logoRef.current.removeEventListener("mouseleave", handleMouseLeave);
+			};
 		},
 		{ scope: logoRef },
 	);
@@ -51,7 +75,7 @@ export const Navigation: FC = () => {
 						router.push("/", { scrollTop: true });
 					}}
 					ref={logoRef}
-					className="relative col-span-4 overflow-hidden"
+					className="relative col-span-4 overflow-hidden cursor-pointer"
 				>
 					<span data-slogan className="inline-block">
 						For designers, developers, and digital makers
