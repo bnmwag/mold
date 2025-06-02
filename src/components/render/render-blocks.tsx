@@ -27,7 +27,8 @@ export const RenderBlocks: React.FC<{
 
 				if (Block) {
 					return (
-						<Fragment key={index}>
+						<Fragment key={block.id}>
+							{/* @ts-expect-error - ts is not happy with the block types cause all blocks have different props */}
 							<Block {...block} />
 						</Fragment>
 					);
