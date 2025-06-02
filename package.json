@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@gsap/react": "^2.1.2",
 		"@payloadcms/db-mongodb": "^3.40.0",
+		"@payloadcms/live-preview-react": "^3.40.0",
 		"@payloadcms/next": "^3.40.0",
 		"@payloadcms/payload-cloud": "^3.40.0",
 		"@payloadcms/plugin-redirects": "^3.40.0",
