@@ -51,9 +51,9 @@ export const Footer: FC = () => {
 					</Split>
 				</div>
 			</div>
-			<div className="relative h-[18vw] overflow-hidden">
+			<div className="relative h-[18vw] overflow-hidden bg-contrast">
 				<ProgressiveBlur className="pointer-events-none absolute bottom-0 left-0 h-2/3 w-full" blurIntensity={6} />
-				<div className="text-[26.4vw] text-secondary/50 uppercase leading-[1]">Mold&trade;</div>
+				<div className="text-[26.4vw] text-primary uppercase leading-[1]">Mold&trade;</div>
 			</div>
 		</footer>
 	);

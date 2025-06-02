@@ -2,9 +2,10 @@ import "@/css/index.css";
 
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import type { PropsWithChildren } from "react";
+import { Suspense, type PropsWithChildren } from "react";
 import { ReactTempus } from "tempus/react";
 import AppData from "@/../package.json";
+import { ViewTransitions } from "next-view-transitions";
 
 import { RealViewport } from "@/components/layout/real-viewport";
 import { GSAP } from "@/components/gsap/gsap";
@@ -89,13 +90,15 @@ const sans = localFont({
 
 export default function Layout({ children }: PropsWithChildren) {
 	return (
-		<html lang="en" dir="ltr" className={`${sans.variable}`} suppressHydrationWarning>
-			<body>
-				<RealViewport />
-				{children}
-				<GSAP />
-				<ReactTempus patch />
-			</body>
-		</html>
+		<ViewTransitions>
+			<html lang="en" dir="ltr" className={`${sans.variable}`} suppressHydrationWarning>
+				<body>
+					<RealViewport />
+					{children}
+					<GSAP />
+					<ReactTempus patch />
+				</body>
+			</html>
+		</ViewTransitions>
 	);
 }

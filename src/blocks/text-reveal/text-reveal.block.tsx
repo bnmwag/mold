@@ -5,11 +5,12 @@ import type { TextRevealBlock as ITextRevealBlockProps } from "@/payload-types";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Split } from "@/components/motion/split";
+import { useEntryAnimation } from "@/lib/transitions";
 
 export const TextRevealBlock: FC<ITextRevealBlockProps> = ({ content }) => {
 	const uspContainerRef = useRef<HTMLDivElement>(null);
 
-	useGSAP(
+	useEntryAnimation(
 		() => {
 			if (!uspContainerRef.current) return;
 

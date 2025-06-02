@@ -12,6 +12,7 @@ import { redirect } from "next/navigation";
 import { Wrapper } from "@/components/layout/wrapper";
 import { RenderHero } from "@/components/render/render-hero";
 import Link from "next/link";
+import { PageClient } from "./page.client";
 
 export async function generateStaticParams() {
 	const payload = await getPayload({ config: configPromise });
@@ -64,9 +65,9 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 		if (pagesCount.totalDocs === 0) {
 			return (
-				<div className="h-screen flex flex-col justify-center items-center gap-4">
+				<div className="flex h-screen flex-col items-center justify-center gap-4">
 					<p className="text-2xl">No pages found</p>
-					<p className="text-sm text-[#666]">Please create a page in Payload first.</p>
+					<p className="text-[#666] text-sm">Please create a page in Payload first.</p>
 					<Link href="/admin/collections/pages" className="text-sm underline">
 						Go to Payload
 					</Link>
@@ -81,11 +82,11 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 	return (
 		<Wrapper>
-			{/* Allows redirects for valid pages too */}
 			<Redirects disableNotFound url={url} />
 
 			<RenderHero {...hero} />
 			<RenderBlocks blocks={layout} />
+			<PageClient />
 		</Wrapper>
 	);
 }

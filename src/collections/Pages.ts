@@ -21,18 +21,16 @@ export const Pages: CollectionConfig = {
 	admin: {
 		defaultColumns: ["title", "slug", "updatedAt"],
 		livePreview: {
-			url: ({ data, req }) =>
+			url: ({ data }) =>
 				genPreviewPath({
 					slug: typeof data?.slug === "string" ? data.slug : "",
 					collection: "pages",
-					req,
 				}),
 		},
-		preview: (data, { req }) =>
+		preview: (data) =>
 			genPreviewPath({
 				slug: typeof data?.slug === "string" ? data.slug : "",
 				collection: "pages",
-				req,
 			}),
 		useAsTitle: "title",
 	},
@@ -137,7 +135,7 @@ export const Pages: CollectionConfig = {
 	versions: {
 		drafts: {
 			autosave: {
-				interval: 100, // We set this interval for optimal live preview
+				interval: 100,
 			},
 			schedulePublish: true,
 		},

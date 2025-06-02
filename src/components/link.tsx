@@ -1,7 +1,7 @@
 "use client";
 
 import NextLink from "next/link";
-import type { ComponentProps, MouseEvent } from "react";
+import { useCallback, type ComponentProps, type MouseEvent } from "react";
 // import { usePageTransitionNavigate } from '../page-transition/context'
 
 type LinkProps = Omit<ComponentProps<"a">, "href"> & {
@@ -34,14 +34,17 @@ export function Link({ href, onClick, prefetch = true, variant = undefined, clas
 		...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
 	};
 
-	const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-		onClick?.(e);
+	const handleClick = useCallback(
+		(e: MouseEvent<HTMLAnchorElement>) => {
+			onClick?.(e);
 
-		// if (!isExternal) {
-		// e.preventDefault()
-		// navigate(href)
-		// }
-	};
+			// if (!isExternal) {
+			// e.preventDefault()
+			// navigate(href)
+			// }
+		},
+		[onClick],
+	);
 
 	return (
 		<NextLink

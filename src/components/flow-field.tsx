@@ -162,10 +162,12 @@ const FlowWithMouse = () => {
 };
 
 export default function FlowFieldScene() {
-	return (
-		<Canvas camera={{ position: [0, 0, 20], fov: 60 }}>
-			<ambientLight intensity={1} />
-			<FlowWithMouse />
-		</Canvas>
-	);
+	return null;
+
+	// return (
+	// 	<Canvas camera={{ position: [0, 0, 20], fov: 60 }}>
+	// 		<ambientLight intensity={1} />
+	// 		<FlowWithMouse />
+	// 	</Canvas>
+	// );
 }

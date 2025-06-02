@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cloneElement, useRef, type FC, Children } from "react";
+import { useEntryAnimation } from "@/lib/transitions";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -32,7 +33,7 @@ export const Split: FC<ISplitProps> = ({
 	const splitRef = useRef<SplitText[]>([]);
 	const linesRef = useRef<HTMLDivElement[]>([]);
 
-	useGSAP(
+	useEntryAnimation(
 		() => {
 			if (!containerRef.current) return;
 
