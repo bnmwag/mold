@@ -8,10 +8,20 @@ type LinkProps = Omit<ComponentProps<"a">, "href"> & {
 	href?: string;
 	prefetch?: boolean;
 	variant?: "inline" | "bulky" | undefined;
+	isActive?: boolean;
 	onClick?: (e: MouseEvent<HTMLElement>) => void;
 };
 
-export function Link({ href, onClick, prefetch = true, variant = undefined, className, children, ...props }: LinkProps) {
+export function Link({
+	href,
+	onClick,
+	isActive,
+	prefetch = true,
+	variant = undefined,
+	className,
+	children,
+	...props
+}: LinkProps) {
 	// const navigate = usePageTransitionNavigate()
 	const isExternal = href?.startsWith("http");
 
@@ -51,7 +61,7 @@ export function Link({ href, onClick, prefetch = true, variant = undefined, clas
 			prefetch={prefetch}
 			onClick={handleClick}
 			href={href}
-			className={`${typeof variant === "string" && variant} | ${className}`}
+			className={`${typeof variant === "string" && variant} ${isActive ? "active" : ""} | ${className}`}
 			{...linkProps}
 		>
 			{variant === "bulky" ? (

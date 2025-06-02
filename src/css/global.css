@@ -64,6 +64,14 @@ a.inline {
   position: relative;
 }
 
+a.inline.active {
+  opacity: 50%;
+}
+
+a.inline.active:hover:before {
+  transform: scaleX(0);
+}
+
 a.inline:before {
   content: "";
   position: absolute;

@@ -1,11 +1,13 @@
 "use client";
 
+import cn from "clsx";
 import { useRef, type FC } from "react";
 import { Link } from "../link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTransitionNavigation } from "@/lib/transitions";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +23,7 @@ export const Navigation: FC = () => {
 	const logoRef = useRef<HTMLAnchorElement>(null!);
 	const timelineRef = useRef<gsap.core.Timeline | null>(null);
 	const router = useTransitionNavigation();
+	const pathname = usePathname();
 
 	useGSAP(
 		() => {
@@ -91,6 +94,7 @@ export const Navigation: FC = () => {
 								<Link
 									href={item.href}
 									variant="inline"
+									isActive={item.href === pathname}
 									onClick={(e) => {
 										e.preventDefault();
 										router.push(item.href, { scrollTop: true });
